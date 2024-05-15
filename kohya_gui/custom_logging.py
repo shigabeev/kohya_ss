@@ -31,7 +31,7 @@ def setup_logging(clean=False, debug=False):
             format="%(asctime)s | %(levelname)s | %(pathname)s | %(message)s",
             filename="setup.log",
             filemode="a",
-            encoding="utf-8",
+            encoding="utf8",
             force=True,
         )
     else:

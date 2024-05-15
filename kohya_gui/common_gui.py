@@ -783,7 +783,7 @@ def add_pre_postfix(
         if not os.path.exists(caption_file_path):
             # Create a new caption file with the specified prefix and/or postfix
             try:
-                with open(caption_file_path, "w", encoding="utf-8") as f:
+                with open(caption_file_path, "w", encoding="utf8") as f:
                     # Determine the separator based on whether both prefix and postfix are provided
                     separator = " " if prefix and postfix else ""
                     f.write(f"{prefix}{separator}{postfix}")
@@ -792,7 +792,7 @@ def add_pre_postfix(
         else:
             # Open the existing caption file for reading and writing
             try:
-                with open(caption_file_path, "r+", encoding="utf-8") as f:
+                with open(caption_file_path, "r+", encoding="utf8") as f:
                     # Read the content of the caption file, stripping any trailing whitespace
                     content = f.read().rstrip()
                     # Move the file pointer to the beginning of the file
@@ -895,11 +895,11 @@ def find_replace(
         file_path = os.path.join(folder_path, caption_file)
         # Read and replace text
         try:
-            with open(file_path, "r", errors="ignore", encoding="utf-8") as f:
+            with open(file_path, "r", errors="ignore", encoding="utf8") as f:
                 content = f.read().replace(search_text, replace_text)
 
             # Write the updated content back to the file
-            with open(file_path, "w", encoding="utf-8") as f:
+            with open(file_path, "w", encoding="utf8") as f:
                 f.write(content)
         except Exception as e:
             log.error(f"Error processing file {file_path}: {e}")
@@ -1263,7 +1263,7 @@ def SaveConfigFile(
         log.info(f"Creating folder {folder_path} for the configuration file...")
 
     # Save the data to the specified JSON file
-    with open(file_path, "w", encoding="utf-8") as file:
+    with open(file_path, "w", encoding="utf8") as file:
         json.dump(variables, file, indent=2)
 
 
@@ -1287,7 +1287,7 @@ def save_to_file(content):
 
     # Append content to the specified file
     try:
-        with open(file_path, "a", encoding="utf-8") as file:
+        with open(file_path, "a", encoding="utf8") as file:
             file.write(content + "\n")
     except IOError as e:
         print(f"Error: Could not write to file - {e}")
@@ -1445,7 +1445,7 @@ def is_file_writable(file_path: str) -> bool:
 
     try:
         # Attempt to open the file in append mode to check if it can be written to
-        with open(file_path, "a", encoding="utf-8"):
+        with open(file_path, "a", encoding="utf8"):
             pass
         # If the file can be opened, it is considered writable
         return True
@@ -1466,7 +1466,7 @@ def print_command_and_toml(run_cmd, tmpfilename):
 
     log.info(f"Showing toml config file: {tmpfilename}")
     print("")
-    with open(tmpfilename, "r", encoding="utf-8") as toml_file:
+    with open(tmpfilename, "r", encoding="utf8") as toml_file:
         log.info(toml_file.read())
     log.info(f"end of toml config file: {tmpfilename}")
 

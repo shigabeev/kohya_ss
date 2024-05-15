@@ -347,7 +347,7 @@ def open_configuration(
 
     if not file_path == "" and not file_path == None:
         # load variables from JSON file
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, "r", encoding="utf8") as f:
             my_data = json.load(f)
             log.info("Loading config...")
             # Update values to fix deprecated use_8bit_adam checkbox and set appropriate optimizer if it is set to True
@@ -868,7 +868,7 @@ def train_model(
     tmpfilename = fr"{output_dir}/config_dreambooth-{formatted_datetime}.toml"
     
     # Save the updated TOML data back to the file
-    with open(tmpfilename, "w", encoding="utf-8") as toml_file:
+    with open(tmpfilename, "w", encoding="utf8") as toml_file:
         toml.dump(config_toml_data, toml_file)
 
         if not os.path.exists(toml_file.name):
