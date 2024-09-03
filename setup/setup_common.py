@@ -18,7 +18,7 @@ def check_python_version():
     bool: True if the current Python version is valid, False otherwise.
     """
     min_version = (3, 10, 9)
-    max_version = (3, 11, 0)
+    max_version = (3, 12, 0)
     
     from packaging import version
     
@@ -28,7 +28,7 @@ def check_python_version():
         
         if not (min_version <= current_version < max_version):
             log.error(f"The current version of python ({current_version}) is not appropriate to run Kohya_ss GUI")
-            log.error("The python version needs to be greater or equal to 3.10.9 and less than 3.11.0")
+            log.error("The python version needs to be greater or equal to 3.10.9 and less than 3.12.0")
             return False
         return True
     except Exception as e:
