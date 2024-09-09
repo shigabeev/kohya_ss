@@ -154,6 +154,8 @@ class SampleImages:
                     "k_euler_a",
                     "k_dpm_2",
                     "k_dpm_2_a",
+                    "k_dpm++_sde",
+                    "k_dpm++_2m_sde"
                 ],
                 value=self.config.get("samples.sample_sampler", "euler_a"),
                 interactive=True,
